@@ -8,6 +8,8 @@ https://www.kaggle.com/c/plant-seedlings-classification/overview
 ## Loss curve
 
 ## Accuracy curve
+<img src="https://i.imgur.com/hgWTEfc.png "KaggleResults" alt="Sample"  width="250" height="140">
+<img src="https://i.imgur.com/PTQMewT.png "KaggleResults" alt="Sample"  width="250" height="140">        
 ![GITHUB](https://i.imgur.com/hgWTEfc.png "KaggleResults")
 ![GITHUB](https://i.imgur.com/PTQMewT.png "KaggleResults")
 # SVM/Cross-entropy Comparison
