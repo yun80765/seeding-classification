@@ -23,12 +23,12 @@ def train():
     data_loader = DataLoader(dataset=train_set, batch_size=32, shuffle=True, num_workers=1)
 
     model = VGG11(num_classes=train_set.num_classes)
-    if(use_gpu): model = model.cuda(1)
+    if(use_gpu): model = model.cuda()
     model.train()
 
     best_model_params = copy.deepcopy(model.state_dict())
     best_acc=0.0
-    num_epochs=10
+    num_epochs=100
     loss_values=[]
     acc_values=[]
     criterion = nn.MultiMarginLoss()
@@ -44,8 +44,8 @@ def train():
         training_corrects = 0
         for i,(inputs,labels) in enumerate(data_loader):
             if(use_gpu):
-                inputs = Variable(inputs.cuda(1))
-                labels = Variable(labels.cuda(1))
+                inputs = Variable(inputs.cuda())
+                labels = Variable(labels.cuda())
             else:
                 inputs, labels = Variable(inputs), Variable(labels)
 
@@ -59,7 +59,7 @@ def train():
 
             training_loss += loss.data * inputs.size(0)
             training_corrects += torch.sum(preds == labels.data)
-            
+
         training_loss = float(training_loss) / (dataset_size )
         training_acc = float(training_corrects) / (dataset_size)
 
@@ -72,25 +72,25 @@ def train():
             best_model_params = copy.deepcopy(model.state_dict())
 
 ##### draw image
-    plt.plot(loss_values,marker='o')
+    plt.plot(loss_values)
     plt.title('loss curve')
     plt.xlabel('epochs')
     plt.ylabel('loss')
     plt.savefig('./images/svm_loss_curve.png')
     plt.show()
 
-    plt.plot(acc_values,marker='o')
+    plt.plot(acc_values)
     plt.title('accuracy curve')
     plt.xlabel('epochs')
-    plt.ylabel('accuracy')    
+    plt.ylabel('accuracy')
     plt.savefig('./images/svm_acc_curve.png')
     plt.show()
-    
+
 
     model.load_state_dict(best_model_params)
     torch.save(model, f'model-{best_acc:.02f}-best_train_acc.pth')
-        
 
-            
+
+
 if __name__ == '__main__':
     train()
