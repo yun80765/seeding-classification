@@ -9,7 +9,7 @@ https://www.kaggle.com/c/plant-seedlings-classification/overview
 
 ## Accuracy curve
 <p>
-    <img src="https://i.imgur.com/hgWTEfc.png" alt="Sample"  width="450" height="140">
+    <img src="https://i.imgur.com/hgWTEfc.png" alt="Sample" >
 </p>
 
 ![GITHUB](https://i.imgur.com/hgWTEfc.png "KaggleResults")
