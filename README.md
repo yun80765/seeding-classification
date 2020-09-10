@@ -20,5 +20,5 @@ https://www.kaggle.com/c/plant-seedlings-classification/overview
 </p>
 
 # SVM/Cross-entropy Comparison
-  看上面的圖表可以發現，SVM model在剛開始的時候明顯loss比Cross低很多，
+  According to the chart, we can know that SVM has lower loss, and Cross-entropy has higher accuracy.
 
